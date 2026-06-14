@@ -1,0 +1,8 @@
+# Config locale (vraies valeurs) — jamais commitée.
+js/chat-config.js
+js/chat-config.js.bak*
+
+# Secrets / environnements.
+.env
+.env.*
+*.local
