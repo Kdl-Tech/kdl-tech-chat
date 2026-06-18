@@ -188,6 +188,12 @@
         if (elForm) elForm.addEventListener('submit', handleSubmit);
         if (elToggle) elToggle.addEventListener('click', function () { signupMode = !signupMode; updateAuthModeUI(); });
         if (elLogout) elLogout.addEventListener('click', function () { sb.auth.signOut(); });
+        var elGoogle = document.getElementById('oauth-google');
+        if (elGoogle) elGoogle.addEventListener('click', function () {
+            setAuthMsg('Redirection vers Google…');
+            sb.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: 'https://chat.kdl-tech.fr/' } })
+                .then(function (res) { if (res && res.error) setAuthMsg(friendlyAuth(res.error), 'err'); });
+        });
         updateAuthModeUI();
     }
 
