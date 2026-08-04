@@ -1,4 +1,53 @@
-# KDL Tchat — chat privé sécurisé
+<div align="center">
+
+# 💬 KDL Tchat
+
+**A private real-time chat: static vanilla-JS frontend on Supabase, with security enforced by Row Level Security rather than by a trusted backend.**
+
+[![No build step](https://img.shields.io/badge/Build-none%20%C2%B7%20vanilla%20JS-f7df1e.svg)]()
+[![Supabase](https://img.shields.io/badge/Supabase-Auth%20%C2%B7%20RLS%20%C2%B7%20Realtime-3ecf8e.svg)]()
+[![No secrets](https://img.shields.io/badge/Secrets%20in%20repo-none-22c55e.svg)](#security-model)
+[![Status](https://img.shields.io/badge/status-in%20preparation-orange.svg)](#status)
+
+*🇫🇷 [Documentation française complète plus bas](#-documentation-française)*
+
+</div>
+
+---
+
+## What it is
+
+The private chat module of [kdl-tech.fr](https://kdl-tech.fr), released as open
+source. It is a useful reference if you are building on Supabase and want to see
+**a frontend that holds no secret at all** — no service key, no privileged
+endpoint, no trusted middle tier.
+
+<a id="security-model"></a>
+### Security model
+
+- **No secret in the repository.** Only the **public** (anon/publishable) key and
+  the project URL reach the browser — real security is enforced by RLS.
+- **`service_role` is banned from the frontend** (admin key, never published).
+- **RLS on every table**: nothing is readable unless authenticated and not banned.
+- **Immutable messages**: no `UPDATE`/`DELETE` policy; soft deletion goes through
+  `security definer` functions (`soft_delete_message`, `restore_message`).
+- **Anti-XSS**: all user content rendered via `textContent`, never `innerHTML`.
+- **Anti-bot**: Cloudflare Turnstile wired into `signUp`/`signIn`.
+
+<a id="status"></a>
+> ⚠️ **Status: in preparation.** The code is complete and tested locally; the
+> public deployment is not live yet.
+
+## Contributing
+
+RLS policy reviews are especially welcome — that is where the entire security of
+this design lives. ⭐ helps others find it.
+
+---
+
+<a id="-documentation-française"></a>
+
+## 🇫🇷 Documentation française
 
 Module de chat privé temps réel du site [kdl-tech.fr](https://kdl-tech.fr),
 publié en open-source. Frontend statique (vanilla JS, zéro build) + **Supabase**
@@ -69,3 +118,19 @@ fichier suivi, ou si `js/chat-config.js` n'est pas ignoré.
 ## Licence
 
 MIT.
+
+---
+
+<div align="center">
+
+**Other tools by [KDL TECH](https://kdl-tech.fr)** — an independent computer repair
+and software workshop in Guadeloupe 🇬🇵
+
+[Anti-arnaque](https://github.com/Kdl-Tech/kdl-anti-arnaque) ·
+[Privacy Dev Browser](https://github.com/Kdl-Tech/kdl-privacy-dev-browser) ·
+[Prompt Studio](https://github.com/Kdl-Tech/kdl-prompt-studio) ·
+[DNS Shield](https://github.com/Kdl-Tech/kdl-dns-shield) ·
+[Security Free](https://github.com/Kdl-Tech/kdl-security-free) ·
+[MAIA Conky](https://github.com/Kdl-Tech/maia-conky)
+
+</div>
