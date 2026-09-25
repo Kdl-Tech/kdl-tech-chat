@@ -35,8 +35,12 @@
         ts.mount(tsWidget, cfg);
         tsActive = true;
         if (tsStatus) tsStatus.textContent = '(vérification active — un jeton sera exigé à l\'inscription)';
-    } else if (tsStatus) {
-        tsStatus.textContent = '⚠ Vérification humaine non configurée (site key placeholder) — aucun script Cloudflare chargé.';
+    } else {
+        /* Aucune site key réelle : ne pas promettre une protection inactive
+           ni exposer de détail technique au visiteur. */
+        var tsBox = document.getElementById('turnstile-box');
+        if (tsBox) tsBox.hidden = true;
+        console.info('[KDL chat] Turnstile non configuré — aucun script Cloudflare chargé.');
     }
 
     /* =========================================================
