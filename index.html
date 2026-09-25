@@ -9,30 +9,30 @@
     <meta name="theme-color" content="#020817">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=2.2.0">
+<script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('kdl-theme')==='dark'?'dark':'light')}catch(e){document.documentElement.setAttribute('data-theme','light')}</script>
+    <link rel="stylesheet" href="css/kdl-theme.css?v=1">
+    <link rel="stylesheet" href="css/style.css?v=2.3.0">
 </head>
 <body>
 
 <!-- ===== HEADER ===== -->
 <header class="header" id="top">
     <div class="container header-inner">
-        <a href="https://kdl-tech.fr/index.html" class="brand">
-            <img src="logo-96.webp" alt="KDL TECH" width="44" height="44">
-            <span>KDL<b>TECH</b></span>
+        <a href="https://kdl-tech.fr/" class="brand">
+            <span class="kdl-logo"><img src="logo-kdl-v2-88.webp" alt="KDL TECH" width="52" height="44"></span>
+            <span>KDL <b>TECH</b></span>
         </a>
         <nav class="nav" id="nav">
-            <a href="https://kdl-tech.fr/index.html#dashboard">Dashboard</a>
-            <a href="https://kdl-tech.fr/index.html#services">Services</a>
-            <a href="https://kdl-tech.fr/index.html#apps">Apps</a>
-            <a href="https://kdl-tech.fr/index.html#tarifs">Tarifs</a>
-            <a href="https://kdl-tech.fr/index.html#contact">Contact</a>
+            <a href="https://kdl-tech.fr/depannage-informatique-guadeloupe/">Dépannage</a>
+            <a href="https://kdl-tech.fr/pro/">Entreprises</a>
+            <a href="https://kdl-tech.fr/logiciels/">Logiciels</a>
+            <a href="https://kdl-tech.fr/tarifs/">Tarifs</a>
+            <a href="https://kdl-tech.fr/Contact/">Contact</a>
             <a href="https://kdl-tech.fr/blog.html">Blog</a>
         </nav>
         <div class="header-cta">
-            <a class="btn btn-ghost btn-sm" href="https://kdl-tech.fr/index.html#devis">⚡ Diagnostic rapide</a>
+            <span data-kdl-theme-btn></span>
+            <a class="btn btn-ghost btn-sm" href="https://kdl-tech.fr/tarifs/">⚡ Diagnostic rapide</a>
             <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
         </div>
     </div>
@@ -109,8 +109,8 @@
             <p class="chat-empty" id="chat-empty" hidden>Aucun message pour le moment. Lancez la conversation !</p>
             <div class="chat-msgs" id="chat-msgs" aria-label="Messages du salon">
                 <p class="chat-demo-note">
-                    Aperçu de linterface du salon. Aucun message réel nest affiché ici :
-                    les conversations napparaissent quune fois connecté.
+                    Aperçu de l’interface du salon. Aucun message réel n’est affiché ici :
+                    les conversations n’apparaissent qu’une fois connecté.
                 </p>
             </div>
             <form class="chat-input" id="send-form" aria-label="Saisie de message">
@@ -132,15 +132,17 @@
 </main>
 
 <!-- ===== FOOTER ===== -->
+<div class="container"><aside data-kdl-promo data-app="tchat"></aside></div>
+
 <footer class="footer">
     <div class="container footer-grid">
         <div class="footer-brand">
-            <a href="https://kdl-tech.fr/index.html" class="brand"><img src="logo-96.webp" alt="KDL TECH" width="40" height="40" loading="lazy"><span>KDL<b>TECH</b></span></a>
+            <a href="https://kdl-tech.fr/" class="brand"><img src="logo-96.webp" alt="KDL TECH" width="40" height="40" loading="lazy"><span>KDL <b>TECH</b></span></a>
             <p>Expert Mac, PC, Linux & Web en Guadeloupe.<br>Réparation, cybersécurité et applications web.</p>
         </div>
         <div>
             <h3 class="foot-title">Navigation</h3>
-            <a href="https://kdl-tech.fr/index.html#services">Services</a><a href="https://kdl-tech.fr/index.html#tarifs">Tarifs</a><a href="https://kdl-tech.fr/blog.html">Blog</a><a href="https://kdl-tech.fr/index.html#contact">Contact</a>
+            <a href="https://kdl-tech.fr/depannage-informatique-guadeloupe/">Services</a><a href="https://kdl-tech.fr/tarifs/">Tarifs</a><a href="https://kdl-tech.fr/blog.html">Blog</a><a href="https://kdl-tech.fr/Contact/">Contact</a>
         </div>
         <div>
             <h3 class="foot-title">Apps KDL</h3>
@@ -161,6 +163,8 @@
 <button class="to-top" id="to-top" aria-label="Retour en haut">▲</button>
 
 <script src="js/main.js" defer></script>
+<script src="js/kdl-theme.js?v=1" defer></script>
+<script src="js/kdl-promo.js?v=1" defer></script>
 <!-- chat-config.js : local, gitignoré — copier js/chat-config.example.js (placeholders publics uniquement) -->
 <script src="js/chat-config.js?v=r1" defer></script>
 <!-- turnstile-helper.js : ne charge l'api.js Cloudflare QUE si la site key est réelle -->
