@@ -407,4 +407,3 @@ body{background:var(--ecume);color:var(--texte)}
 h1,h2,h3{color:var(--encre)}
 .btn-primary{background:var(--lagon-fond);color:#fff;box-shadow:0 12px 24px -12px rgba(10,116,117,.7)}
 .btn-primary:hover{background:var(--lagon-fond-h);color:#fff}
-.brand b{margin-left:.28em}
