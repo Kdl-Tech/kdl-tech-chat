@@ -166,7 +166,7 @@
     function loadHistory() {
         setStatus('Connexion au salon…');
         return sb.from('messages')
-            .select('id, content, created_at, deleted_at, user_id, author:profiles(username, role)')
+            .select('id, content, created_at, deleted_at, user_id, author:profiles!messages_user_id_fkey(username, role)')
             .order('created_at', { ascending: true })
             .limit(HISTORY_LIMIT)
             .then(function (res) {
